@@ -1,0 +1,17 @@
+ROUTINE RunScript
+ #; We will run this routine to do the benchmark
+Run()
+{
+ #; Start time
+ Set startTime = $ZHOROLOG
+ #; Process every Gaia DR3 epoch-photometry file via Embedded Python + polars.
+ #; Reads ./data/in/*.csv.gz, writes ./data/out/result.csv (source_id,
+ #; bp_min_flux, bp_max_flux, rp_min_flux, rp_max_flux, percentage_change).
+ Set gaia = ##class(%SYS.Python).Import("gaia")
+ Set count = gaia.run()
+ #; End time
+ Set endTime = $ZHOROLOG
+ Set elapsed = endTime - startTime
+ Write "Matched sources: ", count, !
+ Write "Elapsed time: ", elapsed, " seconds", !
+}
