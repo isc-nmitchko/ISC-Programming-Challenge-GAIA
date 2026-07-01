@@ -64,8 +64,7 @@ Prerequisites: [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-G
 and [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 ```bash
-git clone <this-repo>
-cd intersystems-challenge1-docker-template
+git clone https://github.com/isc-nmitchko/ISC-Programming-Challenge-GAIA.git .
 docker compose up --build -d
 ```
 
